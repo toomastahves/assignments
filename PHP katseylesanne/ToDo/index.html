@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ToDo app</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    </head>
+    
+    <body>
+        <h2 class="text-center well ">ToDo app</h2>
+        
+        <button class="btn btn-primary" id="show_insert_form_button">Add new task</button>
+        
+        <div id="show_insert_form" style="visibility:hidden;">
+            <form class="form-inline" role="form" id="insert_task">
+                <div class="form-group">
+                    <input class="form-control" maxlength="40" id="title" name="title" type="text" placeholder="Enter task title" required />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="status" name="status">  
+                              <option>Open</option>  
+                              <option>In progress</option>
+                              <option>Closed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="deadline" name="deadline" type="text"  />
+                </div>
+                <button class="btn btn-primary" type="submit">Add</button>
+            </form>
+        </div>
+        
+        <div id="show_update_form" style="visibility:hidden;">
+            <form class="form-inline" id="update_task">
+
+            <input class="form-control" type="hidden" id="id_update" name="id" />
+
+                <div class="form-group">
+                    <input class="form-control" maxlength="40" id="title_update" placeholder="Enter task title" name="title" type="text" required />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="status_update" name="status">  
+                              <option>Open</option>
+                              <option>In progress</option>
+                              <option>Closed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="deadline_update" name="deadline" type="text"  />
+                </div>
+                <button class="btn btn-primary" type="submit">Update</button>
+            </form>
+        </div>
+        
+        <div class="panel panel-success">
+            <div class="panel-heading"><h4><strong>Task list</strong></h4></div>
+            <blockquote><div id="count_results"></div></blockquote>
+        </div>
+        
+        <div class="panel-body" id="search_box">
+            <p><input class="form-control" type="text" name="filter" value="" id="filter" placeholder="Filter tasks" /></p>
+        </div>
+        
+        <div id="tasklist">
+            <table class="table table-striped table-hover" id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Deadline</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable"></tbody>
+            </table>
+        </div>
+        
+        <script src="application.js"></script>
+    </body>
+</html>
